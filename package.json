@@ -1,7 +1,7 @@
 {
-  "name": "loopback-connector-db2",
+  "name": "loopback-connector-db2i",
   "version": "1.0.14",
-  "description": "LoopBack Connector for IBM DB2",
+  "description": "LoopBack Connector for IBM DB2 for i",
   "keywords": [
     "IBM",
     "StrongLoop",
@@ -19,7 +19,6 @@
   "dependencies": {
     "async": "^1.5.0",
     "debug": "^2.2.0",
-    "ibm_db": "^0.0.19",
     "loopback-connector": "^2.3.0"
   },
   "devDependencies": {
@@ -35,11 +34,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/strongloop/loopback-connector-db2.git"
+    "url": "git://github.com/pierrickrouxel/loopback-connector-db2i.git"
   },
-  "homepage": "https://github.com/strongloop/loopback-connector-db2",
+  "homepage": "https://github.com/pierrickrouxel/loopback-connector-db2i",
   "bugs": {
-    "url": "https://github.com/strongloop/loopback-connector-db2/issues"
+    "url": "https://github.com/pierrickrouxel/loopback-connector-db2i/issues"
   },
   "license": "Artistic-2.0"
 }

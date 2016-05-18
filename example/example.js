@@ -4,20 +4,19 @@
 // License text available at https://opensource.org/licenses/Artistic-2.0
 
 var DataSource = require('loopback-datasource-juggler').DataSource;
-var DB2 = require('../'); // loopback-connector-db2
+var DB2i = require('../'); // loopback-connector-db2i
 
 var config = {
+  useLimitOffset: true,
+  schema: process.env.DB2_SCHEMA || 'STRONGLOOP',
+  naming: process.env.DB2_NAMING,
   username: process.env.DB2_USERNAME,
-  password: process.env.DB2_PASSWORD,
-  hostname: process.env.DB2_HOSTNAME,
-  port: 50000,
-  database: 'SQLDB',
+  password: process.env.DB2_PASSWORD
 };
 
-var db = new DataSource(DB2, config);
+var db = new DataSource(DB2i, config);
 
-var User = db.define('User', {name: {type: String}, email: {type: String},
-});
+var User = db.define('User', {name: {type: String}, email: {type: String} });
 
 db.autoupdate('User', function(err) {
   if (err) {
