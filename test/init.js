@@ -11,7 +11,7 @@ var config = {
   username: process.env.DB2_USERNAME,
   password: process.env.DB2_PASSWORD,
   database: process.env.DB2_DATABASE || '*LOCAL',
-  schema: process.env.DB2_SCHEMA || 'STRONGLOOP'
+  schema: process.env.DB2_SCHEMA || 'STRONGLOOP',
 };
 
 global.config = config;

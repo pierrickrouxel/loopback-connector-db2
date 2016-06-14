@@ -23,38 +23,7 @@ describe('testConnection', function() {
       done(err);
     });
   });
-
-  it('should pass when valid DSN overrides invalid settings', function(done) {
-    var dsn = generateDSN(config);
-    var dbConfig = {
-      dsn: dsn,
-      host: 'invalid-hostname',
-      port: 80,
-      database: 'invalid-database',
-      username: 'invalid-username',
-      password: 'invalid-password',
-    };
-
-    var db = new DataSource(require('../'), dbConfig);
-    db.ping(function(err) {
-      assert(!err, 'Should connect without err.');
-      done(err);
-    });
-  });
 });
-
-function generateDSN(config) {
-  var dsn =
-    'DRIVER={DB2}' +
-    ';DATABASE=' + config.database +
-    ';HOSTNAME=' + config.hostname +
-    ';UID=' + config.username +
-    ';PWD=' + config.password +
-    ';PORT=' + config.port +
-    ';PROTOCOL=TCPIP' +
-    ';CurrentSchema=' + config.schema;
-  return dsn;
-}
 
 describe('lazyConnect', function() {
   it('should skip connect phase (lazyConnect = true)', function(done) {
@@ -89,7 +58,7 @@ describe('lazyConnect', function() {
     var ds = getDS(dsConfig);
 
     ds.on('error', function(err) {
-      err.message.should.containEql('[IBM][CLI Driver]');
+      err.message.should.containEql('SQLSTATE=');
       done();
     });
   });

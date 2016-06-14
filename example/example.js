@@ -11,12 +11,12 @@ var config = {
   schema: process.env.DB2_SCHEMA || 'STRONGLOOP',
   naming: process.env.DB2_NAMING,
   username: process.env.DB2_USERNAME,
-  password: process.env.DB2_PASSWORD
+  password: process.env.DB2_PASSWORD,
 };
 
 var db = new DataSource(DB2i, config);
 
-var User = db.define('User', {name: {type: String}, email: {type: String} });
+var User = db.define('User', {name: {type: String}, email: {type: String}});
 
 db.autoupdate('User', function(err) {
   if (err) {
