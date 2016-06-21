@@ -1,21 +1,21 @@
-#loopback-connector-db2
+# Work in progress
 
-[IBM® DB2®]() is the database of choice for robust, enterprise-wide solutions handling high-volume workloads.
-It is optimized to deliver industry-leading performance while lowering costs.  The `loopback-connector-db2`
-module is the LoopBack connector for DB2.
+#loopback-connector-db2i
+
+The `loopback-connector-db2i` module is the LoopBack connector for DB2 for IBM i.
 
 The LoopBack DB2 connector supports:
 
 - All [CRUD operations](https://docs.strongloop.com/display/LB/Creating%2C+updating%2C+and+deleting+data).
 - [Queries](https://docs.strongloop.com/display/LB/Querying+data) with fields, limit, order, skip and where filters.
-- All supported DB2 LUW versions as well as dashDB.  Note for dashDB set supportDashDB in the loopback datasource definition.  Column organized tables are not supported.
+- Only native connection is supported (for the moment). Column organized tables are not supported.
 
 ## Installation
 
 Enter the following in the top-level directory of your LoopBack application:
 
 ```
-$ npm install loopback-connector-db2 --save
+$ npm install loopback-connector-db2i --save
 ```
 
 The `--save` option adds the dependency to the application's `package.json` file.
@@ -28,7 +28,7 @@ The entry in the application's `server/datasources.json` will look something lik
 ```
 "mydb": {
   "name": "mydb",
-  "connector": "db2"
+  "connector": "db2i"
 }
 ```
 
@@ -37,7 +37,7 @@ Edit `server/datasources.json` to add other supported properties as required:
 ```
 "mydb": {
   "name": "mydb",
-  "connector": "db2",
+  "connector": "db2i",
   "username": <username>,
   "password": <password>,
   "database": <database name>,
@@ -57,8 +57,6 @@ password       | String  | DB2 password associated with the username above
 hostname       | String  | DB2 server hostname or IP address
 port           | String  | DB2 server TCP port number
 useLimitOffset | Boolean | LIMIT and OFFSET must be configured on the DB2 server before use (compatibility mode)
-supportDashDB  | Boolean | Create ROW ORGANIZED tables to support dashDB.
-
 
 Alternatively, you can create and configure the data source in JavaScript code.
 For example:

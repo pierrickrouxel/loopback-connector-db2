@@ -4,9 +4,11 @@
   "description": "LoopBack Connector for IBM DB2 for i",
   "keywords": [
     "IBM",
+    "IBMi",
     "StrongLoop",
     "LoopBack",
     "DB2",
+    "DB2i",
     "DataSource",
     "Connector"
   ],
