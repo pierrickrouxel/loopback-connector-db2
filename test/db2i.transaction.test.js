@@ -14,12 +14,6 @@ var Transaction = require('loopback-connector').Transaction;
 var db, Post;
 
 describe('transactions', function() {
-  before(function() {
-    if (global.config.supportDB2z) {
-      this.skip();
-    }
-  });
-
   describe('commit and rollback', function() {
     before(function(done) {
 
@@ -75,7 +69,7 @@ describe('transactions', function() {
       before(createPostInTx(post));
 
       it('should not see the uncommitted insert',
-         expectToFindPosts(post, 0));
+        expectToFindPosts(post, 0));
 
       it('should see the uncommitted insert from the same transaction',
         expectToFindPosts(post, 1, true));
