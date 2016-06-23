@@ -15,11 +15,6 @@ var db, UserData, NumberData, DateData;
 
 describe('migrations', function() {
   before(function(done) {
-    if (global.config.supportDB2z) {
-      this.skip();
-      return done();
-    }
-
     db = global.getDataSource();
 
     UserData = db.define('UserData', {
@@ -62,53 +57,53 @@ describe('migrations', function() {
       } else {
         fields.should.be.eql([
           {
-            COLNO: 0,
-            DATALENGTH: 512,
-            DATATYPE: 'VARCHAR',
-            NAME: 'email',
-            NULLS: 'N',
-          },
-          {
             COLNO: 1,
             DATALENGTH: 512,
             DATATYPE: 'VARCHAR',
-            NAME: 'name',
-            NULLS: 'Y',
+            NAME: 'email',
+            NULLS: 0,
           },
           {
             COLNO: 2,
-            DATALENGTH: 4096,
+            DATALENGTH: 512,
             DATATYPE: 'VARCHAR',
-            NAME: 'bio',
-            NULLS: 'Y',
+            NAME: 'name',
+            NULLS: 1,
           },
           {
             COLNO: 3,
-            DATALENGTH: 10,
-            DATATYPE: 'TIMESTAMP',
-            NAME: 'birthDate',
-            NULLS: 'Y',
+            DATALENGTH: 4096,
+            DATATYPE: 'VARCHAR',
+            NAME: 'bio',
+            NULLS: 1,
           },
           {
             COLNO: 4,
-            DATALENGTH: 4,
-            DATATYPE: 'INTEGER',
-            NAME: 'pendingPeriod',
-            NULLS: 'Y',
+            DATALENGTH: 16,
+            DATATYPE: 'TIMESTAMP',
+            NAME: 'birthDate',
+            NULLS: 1,
           },
           {
             COLNO: 5,
-            DATALENGTH: 2,
-            DATATYPE: 'SMALLINT',
-            NAME: 'createdByAdmin',
-            NULLS: 'Y',
+            DATALENGTH: 10,
+            DATATYPE: 'INTEGER',
+            NAME: 'pendingPeriod',
+            NULLS: 1,
           },
           {
             COLNO: 6,
-            DATALENGTH: 4,
+            DATALENGTH: 5,
+            DATATYPE: 'SMALLINT',
+            NAME: 'createdByAdmin',
+            NULLS: 1,
+          },
+          {
+            COLNO: 7,
+            DATALENGTH: 10,
             DATATYPE: 'INTEGER',
             NAME: 'id',
-            NULLS: 'N',
+            NULLS: 0,
           },
         ]);
       }
@@ -193,38 +188,38 @@ describe('migrations', function() {
       } else {
         fields.should.be.eql([
           {
-            COLNO: 0,
+            COLNO: 1,
             DATALENGTH: 10,
             DATATYPE: 'DECIMAL',
             NAME: 'number',
-            NULLS: 'N',
-          },
-          {
-            COLNO: 1,
-            DATALENGTH: 2,
-            DATATYPE: 'SMALLINT',
-            NAME: 'tinyInt',
-            NULLS: 'Y',
+            NULLS: 0,
           },
           {
             COLNO: 2,
-            DATALENGTH: 4,
-            DATATYPE: 'INTEGER',
-            NAME: 'mediumInt',
-            NULLS: 'N',
+            DATALENGTH: 5,
+            DATATYPE: 'SMALLINT',
+            NAME: 'tinyInt',
+            NULLS: 1,
           },
           {
             COLNO: 3,
+            DATALENGTH: 10,
+            DATATYPE: 'INTEGER',
+            NAME: 'mediumInt',
+            NULLS: 0,
+          },
+          {
+            COLNO: 4,
             DATALENGTH: 16,
             DATATYPE: 'DECIMAL',
             NAME: 'floater',
-            NULLS: 'Y',
+            NULLS: 1,
           },
-          { COLNO: 4,
-            DATALENGTH: 4,
+          { COLNO: 5,
+            DATALENGTH: 10,
             DATATYPE: 'INTEGER',
             NAME: 'id',
-            NULLS: 'N',
+            NULLS: 0,
           },
         ]);
       }
@@ -241,25 +236,25 @@ describe('migrations', function() {
 
         fields.should.be.eql([
           {
-            COLNO: 0,
-            DATALENGTH: 10,
+            COLNO: 1,
+            DATALENGTH: 16,
             DATATYPE: 'TIMESTAMP',
             NAME: 'dateTime',
-            NULLS: 'Y',
-          },
-          {
-            COLNO: 1,
-            DATALENGTH: 10,
-            DATATYPE: 'TIMESTAMP',
-            NAME: 'timestamp',
-            NULLS: 'Y',
+            NULLS: 1,
           },
           {
             COLNO: 2,
-            DATALENGTH: 4,
+            DATALENGTH: 16,
+            DATATYPE: 'TIMESTAMP',
+            NAME: 'timestamp',
+            NULLS: 1,
+          },
+          {
+            COLNO: 3,
+            DATALENGTH: 10,
             DATATYPE: 'INTEGER',
             NAME: 'id',
-            NULLS: 'N',
+            NULLS: 0,
           },
         ]);
       }
@@ -301,7 +296,7 @@ describe('migrations', function() {
               return done(err);
 
             // change nullable for email
-            assert.equal(fields[0].NULLS, 'N',
+            assert.equal(fields[0].NULLS, 0,
                          'Email does not allow null');
 
             // change type of name
