@@ -1,6 +1,13 @@
 # Work in progress
+For the moment `loopback-connector-db2i` works only on the IBM i, with the IBM shipped driver.
 
-#loopback-connector-db2i
+## TODO
+* Parse date
+* Use the [loopback-ibmdb](https://github.com/strongloop/loopback-ibmdb) module
+* Fix `naming` configuration (actually always system)
+* Remove patch for prepare statement when IBM will fix the driver
+
+# loopback-connector-db2i
 
 The `loopback-connector-db2i` module is the LoopBack connector for DB2 for IBM i.
 
