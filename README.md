@@ -1,4 +1,6 @@
-# Work in progress
+# Needs maintainer
+This development is discontinued. I look for a maintainer.
+
 For the moment `loopback-connector-db2i` works only on the IBM i, with the IBM shipped driver.
 
 ## TODO
