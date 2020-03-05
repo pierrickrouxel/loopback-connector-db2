@@ -1,7 +1,5 @@
-# Needs maintainer
-This development is discontinued. I look for a maintainer.
-
-For the moment `loopback-connector-db2i` works only on the IBM i, with the IBM shipped driver.
+# Project replacement
+This development is discontinued. Instead, please use the `loopback-connector-ibmi` connector. You can find the new connector [here](http://github.com/StrongLoop/loopback-connector-ibmi). It is created by [the StrongLoop and IBM organization](http://github.com/StrongLoop/).
 
 ## TODO
 * Parse date
